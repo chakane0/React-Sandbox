@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+// import Talk from './components/hello'
+// import Yns from './components/yns'
+// import Parent from './components/parent'
+// import Shark from './components/animals/shark'
+// import Goldfish from './components/animals/goldfish'
+// import Tuna from './components/animals/tuna'
+// import AButton from './components/customJSXMethods/aButton'
+import CustomMappings from './components/customJSXMethods/customMappings';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className='customTests'></div>
+      <CustomMappings></CustomMappings>
     </div>
   );
 }
