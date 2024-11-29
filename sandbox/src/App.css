@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.app-main.background {
+  background-color: black;
+}
+
+.app-main.text {
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
