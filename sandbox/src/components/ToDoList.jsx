@@ -11,17 +11,45 @@
         b. make the input only do something when the user clicks a button
 */
 
+import { useState } from 'react';
 
 export default function ToDoList() {
+    const [objectives, setObjective] = useState([]);
+    const [inputValue, setInputValue] = useState('');
+
+    function addObjective() {
+        if(inputValue.trim() !== '') {
+            setObjective([...objectives, inputValue]);
+            setInputValue('');
+        }
+    }
+
+    function removeObjective() {
+        console.log()
+        // for(let i = 0; i < objectives.length; i++) {
+        //     console.log(objectives[i]);
+        // }
+    }
+
     return (
         <>
             <section>
                 <label>Enter an objective:</label>
-                <input type='text' id='userInputBox'></input>
-                <button onClick={}>Add</button>
+                <input 
+                    type='text' 
+                    value={inputValue} 
+                    id='userInputBox' 
+                    onChange={(e) => setInputValue(e.target.value)}>
+                </input>
+                <button onClick={addObjective}>Add</button>
             </section>
             <section>
                 <label>Objectives:</label>
+                <ul>
+                    {objectives.map((objective, index) => (
+                        <li key={index} value={objective} onClick={removeObjective}>{objective}</li>
+                    ))}
+                </ul>
             </section>
         </>
     )
