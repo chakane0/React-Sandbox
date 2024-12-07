@@ -54,7 +54,7 @@ This this case:
 </ul>
 <br></br>
 
-##### Performing initialization and cleanup actions
+### Performing initialization and cleanup actions
 Our components may need to do other things when the component is created. A common scenario is fetching data from an API or cancelling pending API requests when the component is removed. This is where the <b>useEffect()</b> hook comes in. 
 
 ###### What does cleaning up mean?
@@ -286,7 +286,7 @@ export default function User() {
 
 Notice in this optimized code, inside useEffect() we passed an empty array. This tells React theres no values to watch and that we only want to run the cleanup code when the component is removed. In effect, we only run this code once, after the component is mounted. Without this empty array we can notice that this call is made several times. 
 
-#### Sharing data using context hooks
+### Sharing data using context hooks
 Effects are the bridge between your react components and the outside world. The most common use case for effects is to <b>fetch data that the components needs when its first created, and then clean up after the component when its removed. </b>
 
 Another way of sharing data, is through the use of 'context'. Many react applications will have components that share data. For example think of a logged in user. If one exists, then that can alter how other components are rendered (anon vs known). this cases like this the use of context will make this logged in user data available to other components. 
