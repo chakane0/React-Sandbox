@@ -135,6 +135,11 @@ export default class MyList extends Component {
 ```
 </details>
 
-Here, the constructor binds, the event handler context
+
+### LUL
+* inline event handlers - function is defined as part of the markup
+* binding event handlers to elements
+* synthetic event objects - passing events to a native (vanilla js) event listener. 
+* event pooling - React can constantly create new synthetic event instances; it handles this by allocating a synthetic instance pool. When an event is triggered, it takes an instance from the pool and populates its properties. After the event handler is done, the synthetic event instance is pushed back into the pool. 
 
 
