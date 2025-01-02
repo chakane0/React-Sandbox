@@ -1,20 +1,3 @@
-# Crafting Reusable Components
-
-Theres 2 main types of HTML elements we use:
-* Feature Centric 
-* Utility Centric (the more reusable one)
-
-```<section></section>``` would be considered a utility centric element. We have a general intuition of how this and other elements are to be used. 
-
-#### Monolithic Components
-This sounds simple in theory; implementing one component for any given feature. This is bad in practice beacause it would be hard to opttimize the component later on. 
-
-Heres a bad example of a monolithic component
-
-<details>
-<summary>Bad example of monolithic component</summary>
-
-```.jsx
 import React, {Component} from "react";
 const id = (function*() {
     let i = 1;
@@ -132,13 +115,3 @@ export default class MyFeature extends Component {
         )
     }
 }
-```
-</details>
-
-So the above code example if fully functional but the issue is, is that its monolithic, meaning its super hard to refactor. but lets do it anyway just to see how hard it is. 
-
-#### Refactoring component structures
-
-We can start with the JSX, this is usually the best starting point to refactor the component. Then we'll implement new components for the feature. Then, we'll make these new components functional instead of class based. Then we'll learn how to use render props to reduce the number of direct component dependencies. 
-
-We can start with the JSX, this is usually the best starting point to refactor the component. Then we'll implement new components for the feature. Then, we'll make these new components functional instead of class based. Then we'll learn how to use render props to reduce the number of direct component dependencies. 
