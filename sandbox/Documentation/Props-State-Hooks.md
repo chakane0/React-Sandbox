@@ -621,3 +621,29 @@ export default function App() {
 ```
 
 </details>
+
+
+### Memoization with Hooks
+Function components are called on every render. In some cases, if you have functions running expensive computations, this can cause issues in the app. To fight against this, React provides hooks: ```useMemo```, ```useCallBack```, and ```useRef```. These hooks let us memoize values, functions, and references respectively. 
+
+Memoization in itself, is an optimization technique used to improve the performance of algorithms. It is a form of caching, when used, it stores calculated results and reuses the answer for the same sub-problem.
+
+#### useMemo Hook
+This if a function we can use to memoize the result of a computation. Heres example code:
+
+```.jsx
+import { useMemo } from 'react';
+cost Component = () => {
+    const expensiveResult = useMemo(() => {
+        //expensive computation
+        return computeExpensiveValue(dependency);
+    }, [dependency]);
+    return <div>{expensiveResult}</div>
+}
+```
+
+Here ```expensiveResult``` is memoized using ```useMemo()```. ```computeExpensiveValue(dependency)``` is only called based on the dependency value; if it remains the same we will reuse the value previously computed. 
+
+
+
+
