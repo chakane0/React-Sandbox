@@ -64,3 +64,26 @@ You can create a new project with typescript included by executing this: ```npm 
 * never --> represents a type of value that never occurs.
 
 ##### Interfaces and type aliases
+Type aliases are similar to interfaces, although they can be used for other types as well not just objects. Heres a type alias for example:
+
+```.jsx
+// This is a Point type that represents a point in a two dimensional space and ID that can be a string or number.
+type Point = {
+    x: number;
+    y: number;
+};
+type ID = number | string;
+
+// This is how we can use them
+const point: Point = {
+    x: 10,
+    y: 20,
+};
+const id: ID = 100;
+```
+
+##### Interfaces vs type alias
+Both are way to describe objects and their structures. 
+Interfaces are more extensible because they can be declared multiple times and they will be merged together. Usually used to create object shapes
+
+Type aliases cant be re-opened to add new properties. Although they can represent other types like union types, intersection types, tuples, and other types that arent currently available in the interface. Is the usual tool for defining any type, not just objects. 
