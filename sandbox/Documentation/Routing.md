@@ -59,95 +59,16 @@ Heres how we can manage multiple routes declared in a single module. To help, ea
 
 What we can do is, at each top-level feature of the application can have its own route. This way, its clear to see which routes belong top what feature. 
 
-Heres one we can place at the App component
+Please refer to: https://github.com/chakane0/routing-practice/tree/main/routing-practice/src/Components/decouple
 
-<details>
-  <summary>Creating route in App.js</summary>
+## How decoupling works here
 
-```App.js```
-```.jsx
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        index: true, 
-        element: <h1>Nesting Routes</h1>
-      },
-      routeOne,
-      routeTwo,
-    ],
-  },
-]);
-export const App = () => <RouterProvider router={router} />
-```
+### What is decoupling?
+Its just a means for separating different parts of the application so that each part handles a specific responsibility without being bound to anything else. 
 
-```Layout.jsx```
-```.jsx
-function Layout() {
-  return (
-    <main>
-      <nav>
-        <Link to='/'>Main</Link>
-        <span> | </span>
-        <Link to='/one'>One</Link>
-        <span> | </span>
-        <Link to='/two'>Two</Link>
-      </nav>
-      <Outlet />
-    </main>
-  )
-}
-```
-</details>
+Decoupling ensures that your route definitions are kept seperate from the components that render the UI or business logic. By doing so, we can define/manage them in separate files which makes routing easily scalable and maintainable. 
 
-Here we can see that theres 2 routes: one and two. The ```Layout``` function is just a page template for our route data. ```Outlet``` component is a built in react components which will be replaced with matched route elements.
+So for example, instead of setting routes directly in App.js, we dedicate a file to handle routing. All app.js needs is this: ```<RouterProvider router={router} />```
 
-Lets now look at a more specific route.
-
-<details>
-  <summary>Create a feature route</summary>
-
-```ExampleFeature.jsx```
-```.jsx
-const routes: RouteObject = {
-  path: '/one', 
-  element: <Outlet />,
-  children: [
-    {
-      index: true, 
-      element: <Redirect path="/one/1" />
-    },
-    {
-      path: '1',
-      element: <First />
-    },
-    {
-      path: '2',
-      element: <Second />
-    },
-  ],
-};
-```
-
-```First.jsx```
-```.jsx
-export default function First() {
-  return <p>Feature 1, page 1</p>;
-}
-```
-
-```Second.jsx```
-```.jsx
-export default function Second() {
-  return <p>Feature 1, page 1</p>;
-}
-```
-</details>
-
-
-So basically the feature we made exports a configuration object with 3 routes. So, when the app loads the URL: ```/one```, the ```<Redirect>``` component sends the user to /one/1.
-
-Similar to ```RouterProvider```, ```<Redirect>``` only manages logic. The reason it only handles logic is because theres a convention of embedding layouts to handle specific functionalities. This allows for a clean separation of concerns (UI to Logic). ```<Redirect>``` is responsible for <b>programmatically navigating the user to a different route. </b>
+We can also make it so that each feature can store its own routes. The reason we do this is because features can be self contained if we want to update the routing for it, we can do so without touching the global router configuration.
 
