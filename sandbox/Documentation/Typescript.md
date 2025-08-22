@@ -58,8 +58,19 @@ console.log(greet(11));
 
 The second log statement will throw an error for wrong type. This will be useful for us when creating our react apps.
 
+Learn more about typescript <a src="Documentation/TypescriptPrimer.md">here</a>
+
 ### Setting up typescript in your project
 You can create a new project with typescript included by executing this: ```npm create vite@latest my-react-app -- --template react-ts```.
+
+If you want to setup react in an already existing project, execute this:
+
+1. Install Dependencies
+```npm install --save typescript @types/react @types/react-dom```
+
+2. Add a tsconfig.json
+```npx tsc --init```
+
  
 
- Lean more about typescript <a src="Documentation/TypescriptPrimer.md">here</a>
+ 
