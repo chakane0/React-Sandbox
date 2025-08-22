@@ -87,3 +87,6 @@ Both are way to describe objects and their structures.
 Interfaces are more extensible because they can be declared multiple times and they will be merged together. Usually used to create object shapes
 
 Type aliases cant be re-opened to add new properties. Although they can represent other types like union types, intersection types, tuples, and other types that arent currently available in the interface. Is the usual tool for defining any type, not just objects. 
+
+#### Why use TypeScript?
+With typescript you will be able to catch errors early, improve code readability because you'll be making it clear what type a value is. It is pretty easy to refactor as well. 
