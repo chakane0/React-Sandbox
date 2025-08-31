@@ -1,6 +1,7 @@
 import './App.css';
 import Navigation from "./Components/NavigationComponent"
 import StateHook from "./Components/State"
+import UseEffectHook from "./Components/useEffectHook"
 function App() {
   return (
     <div className="App">
@@ -10,7 +11,7 @@ function App() {
       <StateHook/>
       <p>---------------------------------------------------------------------------</p>
       <h1>Covers useEffect</h1>
-
+      <UseEffectHook/>
     </div>
   );
 }
